@@ -3,6 +3,7 @@ package com.example.sanghwankim.shopify;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,14 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.sanghwankim.shopify.models.Order;
+import com.example.sanghwankim.shopify.models.OrderByProvince;
+import com.example.sanghwankim.shopify.models.OrderLab;
+
 import java.util.List;
 
 public class OrdersByProvinceFragment extends Fragment {
 
     private RecyclerView orderByProvinceList;
     private OrderByProvinceAdapter adapterParent;
-    private OrderByProvinceItemAdapter adapterChild;
-    private List<Province> mProvinces;
+    private OrderItemAdapter adapterChild;
+    private List<OrderByProvince> mProvinces;
 
     @Nullable
     @Override
@@ -54,7 +59,7 @@ public class OrdersByProvinceFragment extends Fragment {
             }
         }
 
-        public OrderByProvinceAdapter(List<Province> provinces) {
+        public OrderByProvinceAdapter(List<OrderByProvince> provinces) {
             mProvinces = provinces;
         }
 
@@ -76,15 +81,20 @@ public class OrdersByProvinceFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(final OrderByProvinceAdapter.MyViewHolder holder, final int position) {
-            Province province = mProvinces.get(position);
-//            TextView friendName = holder.orderId;
-            holder.mProvinceName.setText(province.getmProvince());
-
+            OrderByProvince province = mProvinces.get(position);
             mOrders = mProvinces.get(position).getmOrders();
-            adapterChild = new OrderByProvinceItemAdapter(mOrders);
+            StringBuilder subHeader = new StringBuilder();
+            subHeader.append(mOrders.size());
+            subHeader.append(" number of orders from ");
+            subHeader.append(province.getmProvince());
+            holder.mProvinceName.setText(subHeader.toString());
+
+            adapterChild = new OrderItemAdapter(mOrders);
 
             LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-
+            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(orderByProvinceItemList.getContext(),
+                    mLayoutManager.getOrientation());
+            orderByProvinceItemList.addItemDecoration(dividerItemDecoration);
             orderByProvinceItemList.setLayoutManager(mLayoutManager);
             orderByProvinceItemList.setAdapter(adapterChild);
         }
@@ -94,51 +104,4 @@ public class OrdersByProvinceFragment extends Fragment {
             return mProvinces.size();
         }
     }
-
-
-    public class OrderByProvinceItemAdapter extends RecyclerView.Adapter<OrderByProvinceItemAdapter.MyViewHolder> {
-        private List<Order> mOrders;
-        private View itemView;
-        public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView mOrderId;
-
-            public MyViewHolder(View view) {
-                super(view);
-                mOrderId = view.findViewById(R.id.order_id);
-            }
-        }
-
-        public OrderByProvinceItemAdapter(List<Order> orders) {
-            mOrders = orders;
-        }
-
-        @Override
-        public OrderByProvinceItemAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_order_by_province_detail_item, parent, false);
-
-
-            return new OrderByProvinceItemAdapter.MyViewHolder(itemView);
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-
-            return position;
-        }
-
-
-        @Override
-        public void onBindViewHolder(final OrderByProvinceItemAdapter.MyViewHolder holder, final int position) {
-            Order order = mOrders.get(position);
-//            TextView friendName = holder.orderId;
-            holder.mOrderId.setText(order.getId()+"");
-        }
-
-        @Override
-        public int getItemCount() {
-            return mOrders.size();
-        }
-    }
-
 }

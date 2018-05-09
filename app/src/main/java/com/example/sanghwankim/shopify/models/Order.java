@@ -1,4 +1,6 @@
-package com.example.sanghwankim.shopify;
+package com.example.sanghwankim.shopify.models;
+
+import java.util.List;
 
 /**
  * Created by kimsanghwan on 2014-12-29.
@@ -8,6 +10,16 @@ public class Order {
     private long id;
     private String createdAt;
     private String province;
+    private List<OrderProduct> orderProduct;
+    private Customer customer;
+    private double totalPrice;
+    private String currency;
+    private int year;
+    private String address;
+    private String phoneNumber;
+    private String city;
+    private String country;
+
 
     public long getId() {
         return id;
@@ -33,6 +45,81 @@ public class Order {
     public void setProvince(String province) {
         this.province = province;
     }
+
+
+    public List<OrderProduct> getOrderProduct() {
+        return orderProduct;
+    }
+
+    public void setOrderProduct(List<OrderProduct> orderProduct) {
+        this.orderProduct = orderProduct;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
 
 }
 
