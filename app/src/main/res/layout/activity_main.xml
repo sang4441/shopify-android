@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical|left"
             >
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                android:text="Order by year"
+                android:text="Orders by year"
                 android:textColor="@color/white"
                 />
         </LinearLayout>
@@ -34,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical|left">
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                android:text="Order by province"
+                android:text="Orders by province"
                 android:textColor="@color/white"
                 />
         </LinearLayout>

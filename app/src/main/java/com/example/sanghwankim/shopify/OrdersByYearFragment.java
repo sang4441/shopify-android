@@ -17,7 +17,7 @@ import java.util.List;
 
 public class OrdersByYearFragment extends Fragment {
 
-    private final static int  TARGET_YEAR = 2017;
+    private final static int  TARGET_YEAR = 2016;
     private RecyclerView orderByYearList;
     private OrderItemAdapter adapter;
     private List<Order> mOrders;

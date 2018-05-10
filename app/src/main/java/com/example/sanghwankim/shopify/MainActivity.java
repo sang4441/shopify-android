@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         mTextProvince.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mTextProvince.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-                mTextYear.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                mTextProvince.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                mTextYear.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 replaceFragment(new OrdersByProvinceFragment());
             }
         });
@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
         mTextYear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mTextProvince.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                mTextYear.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                mTextProvince.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                mTextYear.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 replaceFragment(new OrdersByYearFragment());
             }
         });

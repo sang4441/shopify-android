@@ -65,11 +65,13 @@ public class OrderLab {
         for (Order order : this.mOrders) {
             if (order.getYear() == year) {
                 ordersByYear.add(order);
+                if (ordersByYear.size() == 10) {
+                    break;
+                }
             }
         }
         return ordersByYear;
     }
-
 
     public List<OrderByProvince> getmOrderByProvinces() {
         return mOrderByProvinces;
